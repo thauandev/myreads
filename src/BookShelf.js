@@ -10,9 +10,7 @@ class BookShelf extends Component {
           filteredBooks.length > 0 && filteredBooks.map(filteredBook => (<li key={filteredBook.id}>
             <div className="book">
               <div className="book-top">
-                <div className="book-cover" style={{
-                    backgroundImage: `url(${filteredBook.imageLinks.thumbnail})`
-                  }}/>
+                <img  className= "book-cover" src={filteredBook.imageLinks.thumbnail} alt="Capa"/>
                 <div className="book-shelf-changer">
                   <select name="shelf" onChange={e => this.props.changeShelf(e, filteredBook)} value={filteredBook.shelf}>
                     <option value="none" disabled="disabled">
