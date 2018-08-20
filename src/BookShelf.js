@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import image from './icons/add.svg';
 
 class BookShelf extends Component {
   render() {
@@ -10,12 +11,13 @@ class BookShelf extends Component {
           filteredBooks.length > 0 && filteredBooks.map(filteredBook => (<li key={filteredBook.id}>
             <div className="book">
               <div className="book-top">
-                <img  className= "book-cover" src={filteredBook.imageLinks.thumbnail} alt="Capa"/>
+                <img src={filteredBook.imageLinks
+                    ? filteredBook.imageLinks.thumbnail
+                    : image
+} alt="Capa"/>
                 <div className="book-shelf-changer">
                   <select name="shelf" onChange={e => this.props.changeShelf(e, filteredBook)} value={filteredBook.shelf}>
-                    <option value="none" disabled="disabled">
-                      Move to...
-                    </option>
+
                     <option value="currentlyReading">
                       Currently Reading
                     </option>
